@@ -1,0 +1,663 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"c",
+				"csrf_protect  (variable)"
+			],
+			[
+				"vers__book",
+				"vers__bookNr__nr"
+			],
+			[
+				"tr",
+				"translationIdentifier__identifier"
+			],
+			[
+				"vers__boo",
+				"vers__bookNr__nr__gte"
+			],
+			[
+				"tra",
+				"translation"
+			],
+			[
+				"transla",
+				"translationIdentifier"
+			],
+			[
+				"for",
+				"ForeignKey"
+			],
+			[
+				"http",
+				"HttpResponse"
+			],
+			[
+				"init",
+				"init_strong_grammar  (function)"
+			],
+			[
+				"ini",
+				"init_strong_nr"
+			],
+			[
+				"te",
+				"templatetags  (module)"
+			],
+			[
+				"dja",
+				"django  (module)"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"file_get",
+				"file_get_contents_utf8"
+			],
+			[
+				"utf",
+				"utf8_encode"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/django.sublime-build",
+	"command_palette":
+	{
+		"height": 400.0,
+		"selected_items":
+		[
+			[
+				"save",
+				"Project: Save As"
+			],
+			[
+				"close",
+				"Project: Close"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				"ip",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"dj",
+				"Django: Run Server"
+			],
+			[
+				"r",
+				"Package Control: Remove Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"pdb",
+				"SublimeREPL: Python - PDB current file"
+			],
+			[
+				"run",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"replpy",
+				"SublimeREPL: Python - PDB current file"
+			],
+			[
+				"djang",
+				"Set Syntax: Python Django"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			]
+		],
+		"width": 529.0
+	},
+	"console":
+	{
+		"height": 287.0,
+		"history":
+		[
+			"open /Users/mirkohecky/Library/Application Support/Sublime Text 3/Installed Packages/Django Manage Commands.sublime-package",
+			"/Users/mirkohecky/Library/Application Support/Sublime Text 3/Installed Packages/Django Manage Commands.sublime-package",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/mirkohecky/Documents/SWE/Django/strongs-v2"
+	],
+	"file_history":
+	[
+		"/Users/mirkohecky/Documents/SWE/Django/strongs-v2/Makefile",
+		"/Users/mirkohecky/Documents/SWE/Django/strongs-v2/setup.py",
+		"/Users/mirkohecky/Documents/SWE/Django/strongs-v2/requirements.txt",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/serializers.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/myproject/settings.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/static/css/newDesign.css",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/static/js/main.js",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/views.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/static/js/infoSidebar.js",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/templates/staticTemplate.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/static/js/content.js",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/urls.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/views_api.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/templates/strongs/staticBible.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/views_verslist.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/views_search.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/views_index.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/views_bible.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/templates/baseTemplate3.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/templates/strongs/searchNew.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/templates/strongs/error.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/templates/strongs/bibleNew.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/admin.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/models.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/templates/strongs/bible.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/templates/strongs/editorbible.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/templates/baseTemplate.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/Django_Strongs/settings.py",
+		"/Users/mirkohecky/PycharmProjects/Strongs.de/strongs/initDb.py",
+		"/Users/mirkohecky/Downloads/pwd.csv",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/js/sidebarEffects.js",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/css/bible.css",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/tests.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/forms.py",
+		"/private/var/folders/91/fwgpk5s17rdb06_2j466jlcw0000gn/T/fz3temp-1/index.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/bible.css",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/bibleBooks_de.txt",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/Django_Strongs/urls.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/less/modules/forms.less",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/less/fonts.less",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/include/python2.7/fileobject.h",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/psycopg2/tests/test_extras_dictcursor.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/js/tooltip.js",
+		"/Users/mirkohecky/Desktop/sunshine/html/index.html",
+		"/Users/mirkohecky/Library/Caches/TemporaryItems/Outlook Temp/GGreek.s/G03/G04500.txt",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/bibles/osis.schlachter2000.v1.withoutnotes.xml",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/django/template/loaders/app_directories.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/bin/activate",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/js/jquery-2.1.0.min.js",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/.idea/encodings.xml",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/django/contrib/admin/static/admin/css/base.css",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/pip/basecommand.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/css/jquery.notebook.css",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/js/jquery.notebook.js",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/templates/strongs/bible.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/templates/strongs/search.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/Django_Strongs/settings.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/templates/registration/login.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/templates/baseTemplate.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/urls.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/encodings/utf_16_le.py",
+		"/Users/mirkohecky/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/templatetags/strongs_extras.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/templates/strongs/strongNr.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/models.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/initDb.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/views.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/js/iscroll.js",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/include/python2.7/cStringIO.h",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/config/install-sh",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/templates/strongs/strongs.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/res/strongs.js",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/psycopg2/extensions.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/.idea/modules.xml",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/manage.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/bible.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/django/contrib/admindocs/templates/admin_doc/view_index.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/.idea/vcs.xml",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/fonts/icomoon-session.json",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/django/contrib/sitemaps/tests/templates/custom_sitemap_index.xml",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/os.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/include/python2.7/object.h",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/grammar_parser.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/static/css/tooltip.css",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/include/python2.7/token.h",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/setuptools/command/build_ext.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/setuptools/extension.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/psycopg2/extras.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/pip/exceptions.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/GER_ELB1905_STRONG.xml",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs.sublime-project",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongsgreek.xml",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/lib/python2.7/site-packages/setuptools/script template.py",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/GER_ILGRDE.xml",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/strongs/admin.py",
+		"/Users/mirkohecky/Downloads/StrongsGreekDictionaryXML_1/strongsgreek.xml",
+		"/Users/mirkohecky/Library/Application Support/Sublime Text 3/Packages/Django Manage Commands/DjangoCommands.sublime-settings",
+		"/Users/mirkohecky/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/mirkohecky/Desktop/test.py",
+		"/Users/mirkohecky/Desktop/test2.py",
+		"/Users/mirkohecky/Library/Application Support/Sublime Text 3/Packages/User/django.sublime-build",
+		"/Users/mirkohecky/Library/Application Support/Sublime Text 3/Installed Packages/Django Manage Commands.sublime-package",
+		"/Users/mirkohecky/Desktop/strongs.de/bible.html",
+		"/Users/mirkohecky/Desktop/strongs.de/css/bible.css",
+		"/Users/mirkohecky/Desktop/strongs.de 2/bible.html",
+		"/Users/mirkohecky/PycharmProjects/AZURE/Django_Strongs/strongs/templates/baseTemplate.html",
+		"/Users/mirkohecky/Desktop/strongs.de 2/css/sidebarEffects.css",
+		"/Users/mirkohecky/Desktop/strongs.de 2/js/sidebarEffects.js",
+		"/Users/mirkohecky/Downloads/SF_2009-01-20_GER_SCH1951_(SCHLACHTER BIBEL 1951 WITH STRONG).xml",
+		"/Users/mirkohecky/PycharmProjects/AZURE/Django_Strongs/strongs/templates/strongs/bible.html",
+		"/Users/mirkohecky/PycharmProjects/AZURE/Django_Strongs/strongs/static/css/flat-ui-addons.css",
+		"/Users/mirkohecky/Downloads/django_mysql_pymysql-0.1-py2.7/mysql_pymysql/base.py",
+		"/Users/mirkohecky/Desktop/Strongs.de Design/bible2.html",
+		"/Users/mirkohecky/PycharmProjects/AZURE/Django_Strongs/GER_SCH1951_STRONG.xml",
+		"/Users/mirkohecky/Desktop/Strongs.de Design/bible.html",
+		"/Users/mirkohecky/PycharmProjects/Django_Strongs/GER_SCH1951_STRONG.xml",
+		"/Applications/CLeVer.app/Contents/Resources/data/strongs-ext.db",
+		"/Applications/CLeVer.app/Contents/Resources/data/ElberfelderCSV2009.db",
+		"/Users/mirkohecky/PycharmProjects/AZURE/Django_Strongs/web.config.xml",
+		"/Users/mirkohecky/Downloads/SF_2009-01-20_GRC_GNTTR_(TEXTUS RECEPTUS NT(STRONGS)).xml",
+		"/Users/mirkohecky/Library/Caches/com.binarynights.ForkLift2/#4/sidebar-effects.js",
+		"/Users/mirkohecky/Library/Caches/com.binarynights.ForkLift2/#2/flat-ui-addons.css",
+		"/Users/mirkohecky/Library/Caches/com.binarynights.ForkLift2/#3/bible.html",
+		"/Users/mirkohecky/Desktop/sidebar-effects.js",
+		"/Users/mirkohecky/Desktop/Strongs.de Design/css/flat-ui-addons.css",
+		"/Users/mirkohecky/Desktop/Strongs Lexikon.html",
+		"/Users/mirkohecky/PycharmProjects/Strongs Parser/Strongs_Lexikon_Griechisch_Deutsch_19980205.pdf",
+		"/Users/mirkohecky/Desktop/parser1.py"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/mirkohecky/Downloads/tischendorf-master/text/parsed"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"jbox",
+			".titletr",
+			".tr",
+			".sb-menu",
+			".container",
+			"hash",
+			"href=\"#",
+			"href=\"",
+			"dosear",
+			"onsubmit",
+			"dosearch",
+			"search",
+			"bible_names_in_view",
+			"63",
+			"matchhei",
+			"edit",
+			"note",
+			"edit",
+			"savenote",
+			"request.user",
+			"content",
+			"position:",
+			"position: abs",
+			"vers4",
+			"vers3",
+			"vers2",
+			"vers1",
+			"biblevers",
+			"hover",
+			"gh",
+			"Q(",
+			"Von Wikipedia:",
+			"b",
+			"is",
+			"opensidebar",
+			"hash",
+			"test",
+			"regexp",
+			".1s",
+			".5s",
+			".7",
+			"search",
+			"tag_search",
+			"100",
+			"4506",
+			"search",
+			"biblevers",
+			"span",
+			"</td></tr></table>",
+			"</td><td class=\"verse\">",
+			"<table><tr><td class=\"versenr\">",
+			"225",
+			"color",
+			"background",
+			"{{ STATIC_URL }}",
+			"Geliebte<",
+			"Geliebte",
+			"Geliebte,",
+			"Seht welch",
+			"kautz",
+			"kauty",
+			"450",
+			"4506",
+			"bootstrap",
+			"visible-md",
+			"visible-lg",
+			"xs",
+			"lg",
+			"<small>Matthäus 1</small>",
+			"bootstrap",
+			"147 0 obj",
+			"269 0 obj",
+			"4506",
+			"4506 ",
+			"2 ",
+			"<p class=\"p4\">",
+			"bootstrap",
+			"$('.indikativ').popover(\n	{title: 'Aus Wikipedia:', content:'Der Indikativ wird für die Darstellung der Wirklichkeit benutzt. Er ist sozusagen der Normalmodus in allen Texten. Der Indikativ steht für ein tatsächliches Geschehen. Er existiert im Gegensatz zu den beiden anderen Modi in allen menschlichen Sprachen und ist der Modus, der im Deutschen am meisten verwendet wird.'}\n);\n",
+			"perti",
+			"icon-print",
+			"icon-",
+			"strong",
+			"td",
+			"4506",
+			"strpos",
+			"set",
+			"74b",
+			"74b690",
+			"gradient",
+			"\"",
+			";",
+			"18, ",
+			", 'Registered'",
+			"jos_"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"div",
+			"</span>",
+			"</span><span class=\"verse\">",
+			"<span class=\"versenr\">",
+			"hidden-xs",
+			"visible-md",
+			"",
+			",",
+			"",
+			"k9ia1_"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 150.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "strongs-v2.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"biblecss",
+				"strongs/static/css/bible.css"
+			],
+			[
+				"bible",
+				"strongs/templates/strongs/bible.html"
+			],
+			[
+				"urls",
+				"strongs/urls.py"
+			],
+			[
+				"mode",
+				"strongs/models.py"
+			],
+			[
+				"sett",
+				"Django_Strongs/settings.py"
+			],
+			[
+				"test",
+				"strongs/tests.py"
+			],
+			[
+				"ba",
+				"strongs/templates/baseTemplate.html"
+			],
+			[
+				"admin",
+				"strongs/admin.py"
+			],
+			[
+				"settings",
+				"Django_Strongs/settings.py"
+			],
+			[
+				"sideb",
+				"strongs/static/js/sidebarEffects.js"
+			],
+			[
+				"edito",
+				"strongs/templates/strongs/editorbible.html"
+			],
+			[
+				"base",
+				"strongs/templates/baseTemplate.html"
+			],
+			[
+				"biblecs",
+				"bible.css"
+			],
+			[
+				"basecs",
+				"lib/python2.7/site-packages/django/contrib/admin/static/admin/css/base.css"
+			],
+			[
+				"url",
+				"Django_Strongs/urls.py"
+			],
+			[
+				"sear",
+				"strongs/templates/strongs/search.html"
+			],
+			[
+				"side",
+				"strongs/static/js/sidebarEffects.js"
+			],
+			[
+				"biblc",
+				"bible.css"
+			],
+			[
+				"ext",
+				"strongs/templatetags/strongs_extras.py"
+			],
+			[
+				"biblec",
+				"bible.css"
+			],
+			[
+				"strongnr",
+				"strongs/templates/strongs/strongNr.html"
+			],
+			[
+				"searc",
+				"strongs/templates/strongs/search.html"
+			],
+			[
+				"init",
+				"strongs/initDb.py"
+			],
+			[
+				"models",
+				"strongs/models.py"
+			],
+			[
+				"view",
+				"strongs/views.py"
+			],
+			[
+				"iscr",
+				"strongs/static/js/iscroll.js"
+			],
+			[
+				"strong",
+				"strongs/templates/strongs/strongNr.html"
+			],
+			[
+				"search",
+				"strongs/templates/strongs/search.html"
+			],
+			[
+				"model",
+				"strongs/models.py"
+			],
+			[
+				"bib",
+				"strongs/templates/strongs/bible.html"
+			],
+			[
+				"tool",
+				"strongs/static/js/tooltip.js"
+			],
+			[
+				"bible.ht",
+				"strongs/templates/strongs/bible.html"
+			],
+			[
+				"strongs.ht",
+				"strongs/templates/strongs/strongs.html"
+			],
+			[
+				"initdb",
+				"strongs/initDb.py"
+			],
+			[
+				"sidebar",
+				"strongs/static/js/sidebarEffects.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 260.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

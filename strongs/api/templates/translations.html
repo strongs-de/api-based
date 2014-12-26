@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block ng_app %}strongs.app.translations{% endblock %}
+
+{% block content %}
+{% verbatim %}
+<div ng-controller="AppController">
+    <ul class="unstyled">
+        <li ng-repeat="tr in translations">{{tr.name}}</li>
+    </ul>
+</div>
+{% endverbatim %}
+{{ block.super }}
+{% endblock %}

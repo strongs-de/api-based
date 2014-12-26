@@ -1,10 +1,10 @@
 clean:
-	rm -f example.sqlite
+	rm -f strongs.sqlite
 
 create_database:
 	./manage.py syncdb --noinput
 	./manage.py migrate --noinput
-	./manage.py createsuperuser --username=root --email=root@example.com --noinput
+	./manage.py createsuperuser --username=root --email=root@strongs.de --noinput
 
 make_fixtures:
 	./manage.py create_users

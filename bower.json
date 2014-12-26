@@ -1,5 +1,5 @@
 {
-    "name": "example",
+    "name": "strongs",
     "version": "1.0.0",
     "dependencies": {
         "angular": "1.2.13",

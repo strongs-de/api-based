@@ -44,7 +44,7 @@ def parse_dependency_links(file_name):
     return dependency_links
 
 params = dict(
-    name='API Example',
+    name='API Strongs',
     packages=find_packages(),
     install_requires=parse_requirements('requirements.txt'),
     dependency_links=parse_dependency_links('requirements.txt'),

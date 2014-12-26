@@ -17,3 +17,6 @@ pep8.report
 *.sqlite
 node_modules
 .vagrant
+osis.NGU.xml
+osis.schlachter2000.v1.withoutnotes.xml
+osis.psalmenNGU.xml
