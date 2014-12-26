@@ -1,0 +1,61 @@
+/***********************************************************************************************************************
+ *                                                                                              INFO SIDEBAR
+ ***********************************************************************************************************************/
+
+#sb-slidebox {
+    position: fixed;
+    right: -300px;
+    top: 0px;
+    /*width: 25%;*/
+    height: 100%;
+    width: 300px;
+    /*max-width: 400px;*/
+    z-index: 4;
+    clear: none;
+    float: left;
+    transition: 0.3s ease-in-out;
+}
+
+#sb-button {
+    float: left;
+    clear: none;
+    font-family: "Glyphter";
+    font-size: 250%;
+    padding: 10px 16px;
+    padding-left: 9px;
+    cursor: pointer;
+    width: 23px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    color: #5BB05B;
+    z-index: 2;
+    border: 1px solid #5BB05B;
+    border-radius: 14px 0 0 14px;
+    margin-left: -50px;
+}
+
+.sb-menu {
+    left: 0;
+    z-index: 3;
+    height: 100%;
+    border: 5px solid #5BB05B;
+    background-color: #f3efe1;
+    color: rgb(0, 0, 0);
+    overflow: scroll;
+    font-size: 110%;
+}
+
+#info-content {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Fallback example for browsers that don't support 3D transforms and/or no JS */
+.no-csstransforms3d .sb-menu,
+.no-js .sb-menu {
+    right: -300px;
+}
+
+.no-csstransforms3d .sb-menu-open .sb-menu,
+.no-js .sb-menu-open .sb-menu {
+    right: 0px;
+}

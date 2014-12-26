@@ -5,7 +5,8 @@
         "angular": "1.2.13",
         "angular-resource": "1.2.13",
         "underscore": "",
-        "bootstrap": ">=3.0"
+        "bootstrap": ">=3.0",
+        "tooltipster": ""
     },
     "private": true
 }

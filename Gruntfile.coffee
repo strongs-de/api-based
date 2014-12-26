@@ -5,25 +5,33 @@ module.exports = (grunt) ->
             files:
                 src: ['strongs/src/js/**/*.coffee']
                 dest: 'strongs/assets/js/script.js'
-        watch: {
+        watch:
             src:
                 files: [
-                    'strongs/src/js/**/*.coffee',
-                    'strongs/src/css/**/*.less'
+                    'strongs/src/**/*.coffee',
+                    'strongs/src/**/*.less'
                 ],
                 tasks: ['coffee', 'less']
-        }
-        less: {
+        less:
             options:
                 paths: ['strongs/src/css']
             files:
                 dest: 'strongs/assets/css/style.css',
-                src: ['strongs/src/css/**/*.less']
-        }
+                src: ['strongs/src/less/**/*.less']
+        copy:
+            main:
+                files: [
+                        expand: true,
+                        cwd: 'strongs/fonts',
+                        src: '**',
+                        dest: 'strongs/assets/fonts',
+                        flatten: true
+                ]
     )
 
     grunt.loadNpmTasks('grunt-contrib-coffee')
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['coffee', 'less', 'watch'])
+    grunt.registerTask('default', ['coffee', 'less', 'copy', 'watch'])
