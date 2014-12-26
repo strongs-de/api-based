@@ -5,8 +5,15 @@ module.exports = (grunt) ->
             files:
                 src: ['strongs/src/js/**/*.coffee']
                 dest: 'strongs/assets/js/script.js'
+        watch: {
+            src: {
+                files: ['strongs/src/js/**/*.coffee'],
+                tasks: []
+            }
+        }
     )
 
     grunt.loadNpmTasks('grunt-contrib-coffee')
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['coffee'])
+    grunt.registerTask('default', ['coffee', 'watch'])
