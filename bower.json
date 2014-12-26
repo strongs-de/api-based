@@ -6,7 +6,8 @@
         "angular-resource": "1.2.13",
         "underscore": "",
         "bootstrap": ">=3.0",
-        "tooltipster": ""
+        "tooltipster": "",
+        "jquery": ""
     },
     "private": true
 }
