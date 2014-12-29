@@ -21,11 +21,20 @@ module.exports = (grunt) ->
         copy:
             main:
                 files: [
+                    {
                         expand: true,
                         cwd: 'strongs/fonts',
                         src: '**',
                         dest: 'strongs/assets/fonts',
                         flatten: true
+                    },
+                    {
+                        expand: true,
+                        cwd: 'strongs/media',
+                        src: '**',
+                        dest: 'strongs/assets/media',
+                        flatten: true
+                    }
                 ]
     )
 

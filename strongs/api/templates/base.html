@@ -19,23 +19,87 @@
         <link href="{% static "tooltipster/css/themes/tooltipster-shadow.css" %}" rel="stylesheet">
     </head>
     <body ng-app="{% block ng_app %}strongs.app.static{% endblock %}">
-        <div class="container">
-            <div class="content ng-cloak" ng-controller="{% block ng_controller %}AppController{% endblock %}">
-                {% block content %}
-                    <div class="panel" ng-repeat="post in posts">
-                        <div class="panel-heading clearfix">{% block post_header %}
-                            {% verbatim %}
-                            <h3 class="panel-title">{{ post.title }} <small>{{ post.author.username }}</small></h3>
-                            {% endverbatim %}
-                        {% endblock %}</div>
-                        {% verbatim %}
-                        <p class="well">{{ post.body }}</p>
-                        <span class="photo" ng-repeat="photo in photos[post.id]">
-                            <img class="img-thumbnail" ng-src="{{ photo.image }}">
-                        </span>
-                        {% endverbatim %}
+        <div ng-controller="{% block ng_controller %}AppController{% endblock %}">
+            <!-- Menubar ... -->
+            <nav class="nav">
+                <a href="/" class="navbar-brand hide-vga hide-small"><img src="{% static "media/logo.png" %}"></a>
+                    {% verbatim %}
+                    <div class="nav-ele" id="center-div"></div>
+                    <div class="nav-ele search-nav-ele">
+                        <form id="search-form" onsubmit="doSearch($('#searchId').val()); return false;">
+                            <input type="text" class="search" id="searchId" placeholder="Suchen" value="{{ search.text }}" />
+                        </form>
                     </div>
-                {% endblock %}
+                    <div class="nav-ele navigator-nav-ele">
+                        <span class="navbuttons">
+                            <a class="glyphter" id="prev_chapter">Z</a>
+                            <span ng-if="search.totalPages > 0">{{ search.actPage }} / {{search.totalPages}}</span>
+                            <a class="glyphter" id="next_chapter">a</a>
+                        </span>
+                    </div>
+                {% endverbatim %}
+                <!-- <div class="nav-ele hide-vga hide-small"></div> -->
+                <div class="nav-ele hide-vga hide-small">
+                    <a href="javascript:void(0);" style="font-size:200%" class="glyphter tooltip" title="<div class='nav-ele'><a href='/'>Home</a></div> <br/> <div class='nav-ele'><a href='http://blog.strongs.de' target='_blank'>Blog</a></div> <br/> <div class='nav-ele'><a href='https://github.com/strongs-de/strongs' target='_blank'>Fork me on Github</a></div> <br/> <div class='nav-ele'><a href='http://blog.strongs.de/impressum'>Impressum</a></div>">
+                        G
+                    </a>
+                </div><div class="nav-ele hide-vga">
+                    {% if user.is_authenticated %}
+                        <a href="javascript:void(0);" style="font-size:170%" class="glyphter tooltip" title="<div class='nav-ele'><a href='/account/'>Mein Konto</a></div> <br/> <div class='nav-ele'><a href='/logout/'>{{user.username}} abmelden</a></div>">
+                            X
+                        </a>
+                    {% else %}
+                        <a href="/login/" class="glyphter tooltip" style="font-size:170%;" title="<div class='nav-ele'><a href='/login/'>Anmelden</a></div> <br/> <div class='nav-ele'><a href='/register/'>Registrieren</a></div>">X</a>
+                    {% endif %}
+                </div>
+            </nav>
+            <!-- ... Menubar -->
+
+
+            <!-- Sidebar ... -->
+            <div id="sb-slidebox">
+                <div class="sb-button" id="sb-button">C</div> <!-- MATTHIAS: Button (rechts oben) für die SideBar -->
+                <div id="sb-menu" class="sb-menu"><div id="info-content">
+                    <h2>Strong-Seitenleiste</h2>
+                    <div style="padding-left:20px">
+                        Wenn du auf ein Strong-Wort geklickt hast, geht diese Seitenleiste auf und du erhältst weitere
+                        Informationen zu diesem griechischen oder hebräischen Wort.<br/><br/>
+                        Du kannst dir z.B. alle Stellen anzeigen lassen, in denen dieses Wort vorkommt und siehst die
+                        verwendete Grammatik dieses Worts.
+                        <br/><br/>
+                        Ein Strong-Wort erkennst du daran, dass es "schwärzer" ist, als die anderen Wörter. Strong
+                        Wörter sind bislang nur in der Elberfelder 1905-Übersetzung vorhanden.
+                        <br/>
+                        <br/>
+                        <h3>Infos zur Suche:</h3>
+                        Suchen kannst du entweder nach einem oder mehreren Wörtern. Du kannst aber auch nach zusammenhängenden
+                        Wörtern suchen, indem du sie in Anführungszeichen umschließt.
+                        <br/>
+                        Eine weitere Möglichkeit hast du, nach einer griechischen oder hebräischen Strong-Nummer zu suchen,
+                        indem du ein "G" oder "H" gefolgt von der Strong Nummer in das Suchfeld eingibst.
+                    </div>
+                </div></div> <!-- MATTHIAS: NAV Container für die SideBar. Sollte in einzelne Bereich (divs) unterteilt werden -->
+            </div>
+            <!-- ... Sidebar -->
+
+            <div class="container">
+                <div class="content ng-cloak">
+                    {% block content %}
+                        <div class="panel" ng-repeat="post in posts">
+                            <div class="panel-heading clearfix">{% block post_header %}
+                                {% verbatim %}
+                                <h3 class="panel-title">{{ post.title }} <small>{{ post.author.username }}</small></h3>
+                                {% endverbatim %}
+                            {% endblock %}</div>
+                            {% verbatim %}
+                            <p class="well">{{ post.body }}</p>
+                            <span class="photo" ng-repeat="photo in photos[post.id]">
+                                <img class="img-thumbnail" ng-src="{{ photo.image }}">
+                            </span>
+                            {% endverbatim %}
+                        </div>
+                    {% endblock %}
+                </div>
             </div>
         </div>
         {% block js %}

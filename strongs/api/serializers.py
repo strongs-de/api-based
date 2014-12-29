@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import User, Post, Photo, BibleTranslation
+from .models import User, Post, Photo, BibleTranslation, BibleBook, BibleText, BibleVers
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -36,9 +36,26 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 
 class BibleTranslationSerializer(serializers.ModelSerializer):
-    identifier = serializers.Field('identifier')
-    language = serializers.Field('language')
-    name = serializers.Field('name')
-
     class Meta:
         model = BibleTranslation
+        fields = ('identifier', 'language', 'name')
+
+
+class BibleBookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BibleBook
+        fields = ('nr', 'name', 'short_name', 'language')
+
+
+class BibleVersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BibleVers
+        fields = ('bookNr', 'chapterNr', 'versNr')
+
+
+class BibleTextSerializer(serializers.ModelSerializer):
+    vers = serializers.Field(source='vers.versNr')
+
+    class Meta:
+        model = BibleText
+        fields = ('vers', 'translationIdentifier', 'versText')

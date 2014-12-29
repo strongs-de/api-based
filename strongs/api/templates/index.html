@@ -1,14 +1,54 @@
 {% extends 'base.html' %}
 
-{% block ng_app %}strongs.app.translations{% endblock %}
-
+{% block ng_app %}strongs.app{% endblock %}
+{% block ng_controller %}AppController{% endblock %}
 {% block content %}
 {% verbatim %}
-<div ng-controller="AppController">
-    <ul class="unstyled">
-        <li ng-repeat="tr in translations">{{tr.name}}</li>
-    </ul>
+<div ng-repeat="i in [0, 1, 2, 3]">
+    <div class="tr" id="tr{{i}}">
+        <div class="titleTr" ng-mouseover="trSwitcherVisible[$index] = true" ng-mouseleave="trSwitcherVisible[$index] = false">
+            <span class="title" style="cursor: pointer;">{{ translations[$index].name }}</span>
+            <span class="result-count" ng-if="search.results[$index] > 0"> ({{search.results[$index]}})</span>
+            <span class="glyphter" style="font-size: 150%; margin: 0px 15px 0px 3px; cursor: pointer;">b</span>
+            <div class="switchTr" ng-show="trSwitcherVisible[$index]">
+                <div ng-repeat="tr in translations">{{tr.name}}</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="bible-text" ng-repeat="v in text[i]">
+                <div class="verse">
+                    <span class="versenr vers-{{ v.vers }}">
+                        {{v.vers}}&nbsp;
+                    </span>
+                    <span ng-bind-html="v.versText"></span>
+                </div>
+            </div>
+        <!--    {% for v in verses1 %}
+                <div class="verse" id="{{v.vers.bookNr.short_name}}{{v.vers.chapterNr}}_{{v.vers.versNr}}">
+                    <span class="versenr vers-{{ v.vers.versNr }}">
+                        {% if user.is_authenticated %}
+                            <a class="tooltip" title="Hinzufügen zur Versliste:<br/>
+                                {% for vl in versLists %}
+                                    <a class='add-to-verslist' onclick='addVersToList(this)' data='{{v.vers.bookNr.nr}}_{{v.vers.chapterNr}}_{{v.vers.versNr}}/{{ vl.id }}'>
+                                        <span class='pad-left glyphter logogreen'>e</span>{{ vl.title }}</a><br/>
+                                {% endfor %}">
+                        {% endif %}
+                        {{v.vers.versNr}}
+                        {% if user.is_authenticated %}
+                            </a>
+                        {% endif %}&nbsp;
+                    </span>
+                    {{v.versText|correctverstext}}
+                </div>
+            {% endfor %}
+            -->
+        </div>
+        <p class="copyright">
+            {{ bible_hint1 }}
+        </p>
+    </div>
 </div>
+
 {% endverbatim %}
 {{ block.super }}
 {% endblock %}

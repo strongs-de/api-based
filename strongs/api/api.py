@@ -1,9 +1,13 @@
 from rest_framework import generics, permissions
+from django.shortcuts import get_object_or_404, get_list_or_404
 
-
-from .serializers import UserSerializer, PostSerializer, PhotoSerializer, BibleTranslationSerializer
-from .models import User, Post, Photo, BibleTranslation
+from .serializers import UserSerializer, PostSerializer, PhotoSerializer
+from .models import User, Post, Photo
 from .permissions import PostAuthorCanEditPermission
+
+
+from .serializers import BibleTranslationSerializer, BibleBookSerializer, BibleVersSerializer, BibleTextSerializer
+from .models import BibleTranslation, BibleBook, BibleVers, BibleText
 
 
 class UserList(generics.ListAPIView):
@@ -77,7 +81,85 @@ class PostPhotoList(generics.ListAPIView):
 
 ####################################################################################
 
+class MultipleFieldRetrieveMixin(object):
+    """
+    Apply this mixin to any view or viewset to get multiple field filtering
+    based on a `lookup_fields` attribute, instead of the default single field filtering.
+    """
+    def get_object(self):
+        queryset = self.get_queryset()             # Get the base queryset
+        queryset = self.filter_queryset(queryset)  # Apply any filter backends
+        filter = {}
+        for field in self.lookup_fields:
+            filter[field] = self.kwargs[field]
+        return get_object_or_404(queryset, **filter)  # Lookup the object
+
+
+class MultipleFieldLookupMixin(object):
+    def get_filter_object(self):
+        filter = {}
+        for i in range(0, len(self.lookup_fields)):
+            urlparam = self.lookup_fields[i]
+            if hasattr(self, 'url_fields') and len(self.lookup_fields) == len(self.url_fields):
+                urlparam = self.url_fields[i]
+            if self.kwargs.get(urlparam):
+                filter[self.lookup_fields[i]] = self.kwargs[urlparam]
+        return filter
+
 
 class BibleTranslationList(generics.ListAPIView):
     model = BibleTranslation
     serializer_class = BibleTranslationSerializer
+
+
+class BibleTranslationDetail(generics.RetrieveAPIView):
+    model = BibleTranslation
+    serializer_class = BibleTranslationSerializer
+    lookup_field = 'identifier'
+
+
+class BibleBookList(generics.ListAPIView):
+    model = BibleBook
+    serializer_class = BibleBookSerializer
+
+    def get_queryset(self):
+        queryset = super(BibleBookList, self).get_queryset()
+        if not self.kwargs.get('language'):
+            return queryset
+        return queryset.filter(language=self.kwargs.get('language'))
+
+
+class BibleBookDetail(MultipleFieldRetrieveMixin, generics.RetrieveAPIView):
+    model = BibleBook
+    serializer_class = BibleBookSerializer
+    lookup_fields = ('language', 'nr')
+
+
+class BibleVersList(MultipleFieldLookupMixin, generics.ListAPIView):
+    model = BibleVers
+    serializer_class = BibleVersSerializer
+    lookup_fields = ('bookNr__language', 'bookNr__nr', 'chapterNr')
+
+    def get_queryset(self):
+        queryset = super(BibleVersList, self).get_queryset()
+        filtr = self.get_filter_object()
+        return queryset.filter(**filtr)
+
+
+class BibleVersDetail(generics.RetrieveAPIView):
+    model = BibleVers
+    serializer_class = BibleVersSerializer
+    lookup_field = 'pk'
+
+
+
+class BibleTextChapterList(MultipleFieldLookupMixin, generics.ListAPIView):
+    model = BibleText
+    serializer_class = BibleTextSerializer
+    lookup_fields = ('translationIdentifier__identifier', 'vers__bookNr__nr', 'vers__chapterNr')
+    url_fields = ('translation', 'bookNr', 'chapterNr')
+
+    def get_queryset(self):
+        queryset = super(BibleTextChapterList, self).get_queryset()
+        filtr = self.get_filter_object()
+        return queryset.filter(**filtr)

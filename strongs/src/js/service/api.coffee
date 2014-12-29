@@ -27,3 +27,11 @@ app.factory 'PostPhoto', ['$resource', ($resource) ->
 app.factory 'BibleTranslation', ['$resource', ($resource) ->
     $resource '/api/translations/:tr_id'
 ]
+
+app.factory 'BibleVers', ['$resource', ($resource) ->
+    $resource '/api/verses/:pk'
+]
+
+app.factory 'BibleText', ['$resource', ($resource) ->
+    $resource '/api/bible/:tr_id/:bookNr/:chapterNr'
+]
