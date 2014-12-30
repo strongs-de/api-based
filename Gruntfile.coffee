@@ -11,7 +11,7 @@ module.exports = (grunt) ->
                     'strongs/src/**/*.coffee',
                     'strongs/src/**/*.less'
                 ],
-                tasks: ['coffee', 'less']
+                tasks: ['coffee', 'less', 'copy']
         less:
             options:
                 paths: ['strongs/src/css']
@@ -33,6 +33,13 @@ module.exports = (grunt) ->
                         cwd: 'strongs/media',
                         src: '**',
                         dest: 'strongs/assets/media',
+                        flatten: true
+                    },
+                    {
+                        expand: true,
+                        cwd: 'strongs/src/elements',
+                        src: '**',
+                        dest: 'strongs/assets/elements',
                         flatten: true
                     }
                 ]

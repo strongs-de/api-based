@@ -1,0 +1,10 @@
+<link rel="import" href="/static/polymer/polymer.html">
+<link rel="import" href="/static/core-ajax/core-ajax.html">
+
+<polymer-element name="vers-element" noscript>
+  <template>
+    <span>I'm <b>vers-element</b>. This is my Shadow DOM.</span>
+    <core-ajax url="/api/translations" auto response="{{resp}}"></core-ajax>
+    <textarea value="{{resp}}"></textarea>
+  </template>
+</polymer-element>

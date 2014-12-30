@@ -1,13 +1,15 @@
 {
-    "name": "strongs",
-    "version": "1.0.0",
-    "dependencies": {
-        "angular": "1.2.13",
-        "angular-resource": "1.2.13",
-        "underscore": "",
-        "bootstrap": ">=3.0",
-        "tooltipster": "",
-        "jquery": ""
-    },
-    "private": true
+  "name": "strongs",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.2.13",
+    "angular-resource": "1.2.13",
+    "underscore": "",
+    "bootstrap": ">=3.0",
+    "tooltipster": "",
+    "jquery": "",
+    "polymer": "Polymer/polymer#~0.5.2",
+    "core-ajax": "Polymer/core-ajax#~0.5.2"
+  },
+  "private": true
 }
