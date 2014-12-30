@@ -9,7 +9,8 @@ module.exports = (grunt) ->
             src:
                 files: [
                     'strongs/src/**/*.coffee',
-                    'strongs/src/**/*.less'
+                    'strongs/src/**/*.less',
+                    'strongs/src/**/*.html'
                 ],
                 tasks: ['coffee', 'less', 'copy']
         less:
