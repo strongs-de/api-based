@@ -7,11 +7,11 @@
 <div ng-repeat="i in [0, 1, 2, 3]">
     <div class="tr" id="tr{{i}}">
         <div class="titleTr" ng-mouseover="trSwitcherVisible[$index] = true" ng-mouseleave="trSwitcherVisible[$index] = false">
-            <span class="title" style="cursor: pointer;">{{ translations[$index].name }}</span>
+            <span class="title" style="cursor: pointer;">{{ translations[translationIndices[i]].name }}</span>
             <span class="result-count" ng-if="search.results[$index] > 0"> ({{search.results[$index]}})</span>
             <span class="glyphter" style="font-size: 150%; margin: 0px 15px 0px 3px; cursor: pointer;">b</span>
             <div class="switchTr" ng-show="trSwitcherVisible[$index]">
-                <div ng-repeat="tr in translations">{{tr.name}}</div>
+                <div ng-repeat="tr in translations" ng-click="switchTranslation(i, $index)">{{tr.name}}</div>
             </div>
         </div>
         <div class="content">

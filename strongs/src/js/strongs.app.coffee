@@ -1,6 +1,6 @@
-app = angular.module 'strongs.app', ['strongs.api']
+app = angular.module 'strongs.app', ['strongs.api', 'LocalStorageModule']
 
-app.controller 'AppController', ['$scope', '$sce', 'BibleTranslation', 'BibleText', ($scope, $sce, BibleTranslation, BibleText) ->
+app.controller 'AppController', ['$scope', '$sce', 'BibleTranslation', 'BibleText', 'localStorageService', ($scope, $sce, BibleTranslation, BibleText, localStorageService) ->
     # initialization
     $scope.trSwitcherVisible = []
 
@@ -45,38 +45,67 @@ app.controller 'AppController', ['$scope', '$sce', 'BibleTranslation', 'BibleTex
         s = s.replace(':', ': ')
         return $sce.trustAsHtml(s)
 
-    $scope.translations = BibleTranslation.query()
-    $scope.search = {
-        actPage: 1,
-        totalPages: 10,
-        text: 'Johannes 1'
-    }
+    # translation switcher
+    switchTranslation = (column, index) ->
+        # store the selected index in localstorage and $scope
+        $scope.translationIndices[column] = index
+        localStorageService.set 'translation-index-' + column, index
+        reloadTranslation(column)
 
-    $scope.text = []
-    $scope.text[0] = BibleText.query(tr_id: 'ELB1905STR', bookNr: 44, chapterNr: 1)
-    $scope.text[1] = BibleText.query(tr_id: 'SCH2000', bookNr: 44, chapterNr: 1)
-    $scope.text[2] = BibleText.query(tr_id: 'LUTH1912', bookNr: 44, chapterNr: 1)
-    $scope.text[3] = BibleText.query(tr_id: 'NGU', bookNr: 44, chapterNr: 1)
-
-    $scope.text[0].$promise.then (results) ->
-        angular.forEach results, (vers) ->
-            # correct the vers text
-            vers.versText = correctverstext vers.versText
+    # reload translations
+    reloadTranslation = (index) ->
+        idx = index ? 0
+        $scope.text[idx] = BibleText.query(tr_id: $scope.translations[$scope.translationIndices[idx]].identifier, bookNr: 44, chapterNr: 1)
 
 
-    $scope.text[1].$promise.then (results) ->
-        angular.forEach results, (vers) ->
-            # correct the vers text
-            vers.versText = correctverstext vers.versText
+        $scope.text[idx].$promise.then (results) ->
+            angular.forEach results, (vers) ->
+                # correct the vers text
+                vers.versText = correctverstext vers.versText
+
+        # should reload all translations?
+        if not index?
+            $scope.text[1] = BibleText.query(tr_id: $scope.translations[$scope.translationIndices[1]].identifier, bookNr: 44, chapterNr: 1)
+            $scope.text[2] = BibleText.query(tr_id: $scope.translations[$scope.translationIndices[2]].identifier, bookNr: 44, chapterNr: 1)
+            $scope.text[3] = BibleText.query(tr_id: $scope.translations[$scope.translationIndices[3]].identifier, bookNr: 44, chapterNr: 1)
 
 
-    $scope.text[2].$promise.then (results) ->
-        angular.forEach results, (vers) ->
-            # correct the vers text
-            vers.versText = correctverstext vers.versText
+            $scope.text[1].$promise.then (results) ->
+                angular.forEach results, (vers) ->
+                    # correct the vers text
+                    vers.versText = correctverstext vers.versText
 
-    $scope.text[3].$promise.then (results) ->
-        angular.forEach results, (vers) ->
-            # correct the vers text
-            vers.versText = correctverstext vers.versText
+
+            $scope.text[2].$promise.then (results) ->
+                angular.forEach results, (vers) ->
+                    # correct the vers text
+                    vers.versText = correctverstext vers.versText
+
+            $scope.text[3].$promise.then (results) ->
+                angular.forEach results, (vers) ->
+                    # correct the vers text
+                    vers.versText = correctverstext vers.versText
+
+    initializeScope = () ->
+        $scope.switchTranslation = switchTranslation
+
+        # get translation indices
+        $scope.translationIndices = []
+        $scope.translationIndices[0] = localStorageService.get('translation-index-0') ? 0
+        $scope.translationIndices[1] = localStorageService.get('translation-index-1') ? 1
+        $scope.translationIndices[2] = localStorageService.get('translation-index-2') ? 2
+        $scope.translationIndices[3] = localStorageService.get('translation-index-3') ? 3
+
+        $scope.translations = BibleTranslation.query()
+        $scope.search = {
+            actPage: 1,
+            totalPages: 10,
+            text: 'Johannes 1'
+        }
+
+        $scope.text = []
+        $scope.translations.$promise.then (results) ->
+            reloadTranslation()
+
+    initializeScope()
 ]
