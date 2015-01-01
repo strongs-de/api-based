@@ -1,49 +1,9 @@
-app = angular.module 'strongs.app', ['strongs.api', 'LocalStorageModule']
+app = angular.module 'strongs.app', ['strongs.api', 'strongs.filters', 'LocalStorageModule', 'ngRoute']
 
-app.controller 'AppController', ['$scope', '$sce', 'BibleTranslation', 'BibleText', 'localStorageService', ($scope, $sce, BibleTranslation, BibleText, localStorageService) ->
+# controllers
+app.controller 'MainController', ['$scope', 'BibleTranslation', 'BibleText', 'localStorageService', ($scope, BibleTranslation, BibleText, localStorageService) ->
     # initialization
     $scope.trSwitcherVisible = []
-
-    # correct vers text
-    correctverstext = (value) ->
-        if not value?
-            return ''
-        s = value.replace("<STYLE css=", "<span style=")
-        s = s.replace("</STYLE>", "</span>")
-
-        # <note n='[3]'>In den</note>
-        # ==> <sup><abbr rel='tooltip' title="In den">[3]</abbr></sup>
-        s = s.replace('<ns0:catchWord>', '***')
-        s = s.replace('</ns0:catchWord>', '+++')
-        # Replace doubled hints
-        s = s.replace(/<ns0:note xmlns:ns0=['"]http:\/\/www.bibletechnologies.net\/2003\/OSIS\/namespace['"] n=['"]\[([^'"]*)\]['"]>([^<]*)<\/ns0:note><ns0:note xmlns:ns0=['"]http:\/\/www.bibletechnologies.net\/2003\/OSIS\/namespace['"] n=['"]\[([^'"]*)\]['"]>([^<]*)<\/ns0:note>/g, "<sup class='small tooltip' title='$2'>$1</sup> ")
-        # Replace single hints
-        s = s.replace(/<ns0:note xmlns:ns0=['"]http:\/\/www.bibletechnologies.net\/2003\/OSIS\/namespace['"] n=['"]\[([^'"]*)\]['"]>([^<]*)<\/ns0:note>/g, "<sup class=\"small tooltip\" title='$2'>$1</sup> ")
-        # Replace hint in zefania xml bibles
-        s = s.replace('(?i)<div><note type=[\'"]x-studynote[\'"]>([^<]*)</note></div>', "<sup class='small tooltip' title='\\1'>Hinweis</sup>")
-        s = s.replace('***', '<b>')
-        s = s.replace('+++', '</b>')
-
-        # s = s.replace("<gr str=", "<span class='sb-strong' onclick='' data-strong=")
-        s = s.replace(/<gr str="([^"]*)"/g, "<span class='sb-strong strong-$1' onclick='' data-strong=\"$1\"")
-        s = s.replace(/\s?<\/gr>/g, "</span> ")
-        s = s.replace(' </span>,', '</span>,')
-        s = s.replace(' </span>.', '</span>.')
-        s = s.replace(' </span>!', '</span>!')
-        s = s.replace(' </span>?', '</span>?')
-        s = s.replace(' </span>:', '</span>:')
-        s = s.replace(' </span>;', '</span>;')
-        s = s.replace(' </span>]', '</span>]')
-        s = s.replace('( ', '(')
-        s = s.replace(' )', ')')
-        s = s.replace(' </span>)', '</span>)')
-        s = s.replace('\n', ' ')
-        s = s.replace(',', ', ')
-        s = s.replace('.', '. ')
-        s = s.replace('!', '! ')
-        s = s.replace('?', '? ')
-        s = s.replace(':', ': ')
-        return $sce.trustAsHtml(s)
 
     # translation switcher
     switchTranslation = (column, index) ->
@@ -53,59 +13,41 @@ app.controller 'AppController', ['$scope', '$sce', 'BibleTranslation', 'BibleTex
         reloadTranslation(column)
 
     # reload translations
-    reloadTranslation = (index) ->
-        idx = index ? 0
-        $scope.text[idx] = BibleText.query(tr_id: $scope.translations[$scope.translationIndices[idx]].identifier, bookNr: 44, chapterNr: 1)
-
-
-        $scope.text[idx].$promise.then (results) ->
-            angular.forEach results, (vers) ->
-                # correct the vers text
-                vers.versText = correctverstext vers.versText
-
+    reloadBibleText = (index) ->
         # should reload all translations?
         if not index?
-            $scope.text[1] = BibleText.query(tr_id: $scope.translations[$scope.translationIndices[1]].identifier, bookNr: 44, chapterNr: 1)
-            $scope.text[2] = BibleText.query(tr_id: $scope.translations[$scope.translationIndices[2]].identifier, bookNr: 44, chapterNr: 1)
-            $scope.text[3] = BibleText.query(tr_id: $scope.translations[$scope.translationIndices[3]].identifier, bookNr: 44, chapterNr: 1)
-
-
-            $scope.text[1].$promise.then (results) ->
-                angular.forEach results, (vers) ->
-                    # correct the vers text
-                    vers.versText = correctverstext vers.versText
-
-
-            $scope.text[2].$promise.then (results) ->
-                angular.forEach results, (vers) ->
-                    # correct the vers text
-                    vers.versText = correctverstext vers.versText
-
-            $scope.text[3].$promise.then (results) ->
-                angular.forEach results, (vers) ->
-                    # correct the vers text
-                    vers.versText = correctverstext vers.versText
+            $scope.text = (BibleText.query(tr_id: $scope.translations[$scope.translationIndices[num]].identifier, bookNr: 44, chapterNr: 1) for num in [0, 1, 2, 3])
+        else
+            $scope.text[index] = BibleText.query(tr_id: $scope.translations[$scope.translationIndices[index]].identifier, bookNr: 44, chapterNr: 1)
 
     initializeScope = () ->
+        # function scoping
         $scope.switchTranslation = switchTranslation
 
-        # get translation indices
-        $scope.translationIndices = []
-        $scope.translationIndices[0] = localStorageService.get('translation-index-0') ? 0
-        $scope.translationIndices[1] = localStorageService.get('translation-index-1') ? 1
-        $scope.translationIndices[2] = localStorageService.get('translation-index-2') ? 2
-        $scope.translationIndices[3] = localStorageService.get('translation-index-3') ? 3
+        # get translation indices from the local storage
+        $scope.translationIndices = (localStorageService.get('translation-index-' + idx) ? idx for idx in [0, 1, 2, 3])
 
+        # load the available translations
         $scope.translations = BibleTranslation.query()
+
+        # load bible text after translations are loaded successful
+        $scope.translations.$promise.then (results) ->
+            reloadBibleText()
+
+        # example for search object
         $scope.search = {
             actPage: 1,
             totalPages: 10,
             text: 'Johannes 1'
         }
 
-        $scope.text = []
-        $scope.translations.$promise.then (results) ->
-            reloadTranslation()
-
     initializeScope()
 ]
+
+# configuration
+app.config ($routeProvider) ->
+    $routeProvider.when("/",
+        templateUrl: "index.html", controller: 'MainController'
+    ).when("/about",
+        template: "Über Strongs.de"
+    ).otherwise redirectTo: "/"

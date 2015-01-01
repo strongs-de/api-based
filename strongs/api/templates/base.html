@@ -27,7 +27,7 @@
                     <div class="nav-ele" id="center-div"></div>
                     <div class="nav-ele search-nav-ele">
                         <form id="search-form" onsubmit="doSearch($('#searchId').val()); return false;">
-                            <input type="text" class="search" id="searchId" placeholder="Suchen" value="{{ search.text }}" />
+                            <input type="text" class="search" id="searchId" placeholder="Suchen" ng-model="search.text" />
                         </form>
                     </div>
                     <div class="nav-ele navigator-nav-ele">
@@ -106,7 +106,8 @@
         <script src="{% static "jquery/dist/jquery.min.js" %}"></script>
         <script src="{% static "underscore/underscore.js" %}"></script>
         <script src="{% static "angular/angular.js" %}"></script>
-        <script src="{% static "angular-resource/angular-resource.js" %}"></script>
+        <script src="{% static "angular-resource/angular-resource.min.js" %}"></script>
+        <script src="{% static "angular-route/angular-route.min.js" %}"></script>
         <script src="{% static "tooltipster/js/jquery.tooltipster.min.js" %}"></script>
         <script src="{% static "angular-local-storage/dist/angular-local-storage.min.js" %}"></script>
         <script src="{% static "js/script.js" %}"></script>

@@ -2,15 +2,16 @@
   "name": "strongs",
   "version": "1.0.0",
   "dependencies": {
-    "angular": "1.2.13",
-    "angular-resource": "1.2.13",
+    "angular": "~1.3.8",
+    "angular-resource": "~1.3.8",
     "underscore": "",
     "bootstrap": ">=3.0",
     "tooltipster": "",
     "jquery": "",
     "polymer": "Polymer/polymer#~0.5.2",
     "core-ajax": "Polymer/core-ajax#~0.5.2",
-    "angular-local-storage": "~0.1.5"
+    "angular-local-storage": "~0.1.5",
+    "angular-route": "~1.3.8"
   },
   "private": true
 }
